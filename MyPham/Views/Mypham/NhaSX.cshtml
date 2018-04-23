@@ -1,0 +1,9 @@
+﻿@model IEnumerable<MyPham.Models.NhaSanXuat>
+
+@for (int i = 0; i < Model.Count() - 1; i += 2)
+{
+    <li class="odd"><a href="@Url.Action("SpTheoNSX","MyPham", new { id= Model.ElementAt(i).MaNSX})">@Model.ElementAt(i).TenNSX</a></li>
+    <li class="even"><a href="@Url.Action("SpTheoNSX","MyPham", new { id= Model.ElementAt(i+1).MaNSX})">@Model.ElementAt(i + 1).TenNSX</a></li>
+
+}
+

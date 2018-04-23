@@ -1,0 +1,10 @@
+﻿@model IEnumerable<MyPham.Models.LoaiSP>
+
+
+
+@for (int i = 0; i < Model.Count() - 1; i = i + 2)
+{
+    <li class="odd"><a href="@Url.Action("SpTheoLoai","MyPham",new { id=Model.ElementAt(i).MaLoai})">@Model.ElementAt(i).TenLoai</a></li>
+    <li class="even"> <a href="@Url.Action("SpTheoLoai","MyPham",new { id=Model.ElementAt(i+1).MaLoai})"> @Model.ElementAt(i + 1).TenLoai</a></li>
+}
+

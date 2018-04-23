@@ -1,0 +1,52 @@
+﻿
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+<style type="text/css">
+    #Datmua a {
+        clear: both;
+        background-color: red;
+        color: white;
+        width: 100px;
+        height: 30px;
+        display: block;
+        float:unset;
+        text-align: center;
+        padding-top: 6px;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+        #Datmua a:hover {
+            background-color: gray;
+            color: red;
+        }
+</style>
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+@*<div class="center_content">*@
+
+    <h2 style="text-align:center; color:orangered">Thông tin chi tiết sản phẩm</h2>
+
+    <div>
+        <div style="width:100%; float:left; ">
+            <img  src="~/Images/@Model.HinhAnh" @*width="420" height="280"*@ />
+        </div>  
+        <div style="width:100%; float:left; padding: 6px">
+            <h4 style="font-weight: bold; color: red; font-size:14px">Tên sản phẩm: @Model.TenSP</h4>
+            <p style="text-align:justify; font-size:14px"> <span style="font-weight:bold"> Mô tả sản phẩm</span> @Model.MoTa</p>
+            <p style="text-align:justify; font-size:14px"> <span style="font-weight:bold"> Nhà sản xuất: @Model.NhaSanXuat.TenNSX </span> </p>
+            <p style="font-weight:bold"; font-size:14px> Giá bán: <span style="color:red; font-size: 16px"> @Model.GiaBan VND</span></p>
+        </div>
+        <div>
+            <div id="Datmua">
+                <a href="@Url.Action("Themgiohang", "Giohang", new { @idSp = Model.MaSP, @strUrl=Request.Url.ToString()})"> Thêm vào giỏ</a>
+            </div>
+        </div>
+        
+    </div>
+    <br />
+    <div class="fb-like" data-href="http://localhost:50074/MyPham/Details/@Model.MaSP" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+    <div class="fb-comments" data-href="http://storeoftrung.somee.com/MyPham/Details/25" data-numposts="5"></div>
+@*</div>*@

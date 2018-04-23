@@ -1,0 +1,50 @@
+﻿@*@model IEnumerable<MyPham.Models.SanPham>*@
+@using MyPham.Models
+@using PagedList.Mvc    
+@model PagedList.PagedList<SanPham>
+@{
+    ViewBag.Title = "San pham theo loai";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<div class="center_content">
+    <h2 style="text-align:center; color:red"></h2>
+    @foreach (var s in Model)
+    {
+        <div class="prod_box">
+            <div class="center_prod_box">
+                <div class="product_title">
+                    <div class="product_title">
+                        <a href="@Url.Action("Details","MyPham",new { id= s.MaSP})">@s.TenSP</a>
+                    </div>
+                </div>
+
+                <div class="product_img">
+                    <a href="@Url.Action("Details","MyPham",new { id= s.MaSP})">
+                        <img src="~/Images/@s.HinhAnh" alt="" border="0" />
+                    </a>
+                </div>
+
+                <div class="prod_price">
+                    <span class="price">@s.GiaBan</span>
+                </div>
+            </div>
+            <div class="prod_details_tab">
+                <a href="@Url.Action("Themgiohang", "Giohang", new { @idSp = s.MaSP, @strUrl=Request.Url.ToString()})" class="prod_buy">Add to Cart</a>
+                <a href="@Url.Action("Details","MyPham",new { id= s.MaSP})" class="prod_details">Details</a>
+            </div>
+        </div>
+    }
+</div>
+
+    <h4 style="text-align:center; color:blue">Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount;</h4>
+    <div class="MenuTrang"> @Html.PagedListPager(Model, page => Url.Action("SpTheoloai", new { page = page })) </div>
+    <style>
+        .MenuTrang li {
+            display:inline;
+            font-style:normal;
+            font-size:20px;
+            border:ridge;
+        }
+    </style>
+

@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=windows-1252" />
+    <link rel="stylesheet" type="text/css" href="~/Content/style.css" />
+    <!--[if IE 6]>
+    <link rel="stylesheet" type="text/css" href="iecss.css" />
+    <![endif]-->
+    <script type="text/javascript" src="~/Scripts/boxOver.js"></script>
+    <script src="~/tinymce/js/tinymce/tinymce.min.js"></script>
+    <script>tinymce.init({ selector: 'textarea' });</script>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+
+</head>
+<body>
+    <div id="main_container">
+        <div id="header">
+            <div class="top_right">
+                <div class="languages">
+                    <div class="lang_text">Languages:</div>
+                    <a href="" class="lang"><img src="~/Images/en.gif" alt="" border="0" /></a> <a href="http://all-free-download.com/free-website-templates/" class="lang"><img src="~/Images/de.gif" alt="" border="0" /></a>
+                </div>
+                <div class="big_banner"> <a href=""><img src="~/Images/banner728.jpg" alt="" border="0" /></a> </div>
+            </div>
+            <div id="logo"> <a href=""><img src="~/Images/logo.png" alt="" border="0" width="182" height="85" /></a> </div>
+        </div>
+        <div id="main_content">
+            <div id="menu_tab">
+                <ul class="menu">
+                    <li>
+                        <a href="@Url.Action("Index","Admin")" class="nav">Trang chủ</a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Sanpham","Admin")" class="nav">Sản phẩm</a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("QLdonhang","Admin")" class="nav">QL đơn hàng</a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("DSdonhang","Admin")" class="nav">DS đơn hàng</a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("QLloaisp","AdloaiSP")" class="nav">QL loaiSP</a>
+                    </li>
+                    @*<li><a href="@Html.ActionLink("SanPham","Admin")" class="nav">Sản phẩm</a></li>
+                    <li class="divider"></li>
+                    <li><a href="@Html.ActionLink("ThuongHieu","Admin")" class="nav">Thương hiệu</a></li>
+                    <li class="divider"></li>
+                    <li><a href="@Html.ActionLink("LoaiSp","Admin")" class="nav">Loại sản phẩm</a></li>*@
+                    
+                </ul>
+            </div>
+        </div>
+        <div>
+            @RenderBody()
+        </div>
+        <div class="footer">
+            <div class="left_footer"> <img src="~/Images/footer_logo.png" alt="" width="89" height="42" /> </div>
+            <div class="center_footer">
+                <p>&copy; @DateTime.Now.Year - Nguyen Duc Trung. All Rights Reserved</p>
+            </div>
+        </div>
+     </div>
+        
+</body>
+</html>

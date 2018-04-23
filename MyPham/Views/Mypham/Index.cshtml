@@ -1,0 +1,80 @@
+﻿@model IEnumerable<MyPham.Models.SanPham>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+    <div class="oferta">
+        <img src="~/Images/p1.png" width="165" height="113" border="0" class="oferta_img" alt="" />
+        <div class="oferta_details">
+            <div class="oferta_title">Power Tools BST18XN Cordless</div>
+            <div class="oferta_text"> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco </div>
+            <a href="http://all-free-download.com/free-website-templates/" class="prod_buy">details</a>
+        </div>
+    </div>
+    <div class="center_title_bar">Sản phẩm mới</div>
+
+    @for (int i = 0; i < Model.Count() - 3; i++)
+    {
+        <div class="prod_box">
+            <div class="center_prod_box">
+                <div class="product_title">
+                    <div class="product_title">
+                        <a href="@Url.Action("Details","MyPham",new { id= Model.ElementAt(i).MaSP})">@Model.ElementAt(i).TenSP</a>
+                    </div>
+                </div>
+
+                <div class="product_img">
+                    <a href="@Url.Action("Details","MyPham",new { id= Model.ElementAt(i).MaSP})">
+                        <img src="~/Images/@Model.ElementAt(i).HinhAnh" width="95px" alt="" border="0" />
+                    </a>
+                </div>
+
+                <div class="prod_price">
+                    <span class="price">@String.Format("{0:0,0}", @Model.ElementAt(i).GiaBan) VND</span>
+                </div>
+                <div class="fb-like" data-href="http://localhost:50074/MyPham/@Model.ElementAt(i).MaSP" data-layout="button_count" data-action="like" data-size="small" data-show-faces="false" data-share="true"></div>
+
+            </div>
+            <div class="prod_details_tab">
+                <a href="@Url.Action("Themgiohang", "Giohang", new { @idSp = Model.ElementAt(i).MaSP, @strUrl=Request.Url.ToString()})" class="prod_buy">Add to Cart</a>
+                <a href="@Url.Action("Details","MyPham",new { id= Model.ElementAt(i).MaSP})" class="prod_details">Details</a>
+            </div>
+            
+        </div>
+    }
+
+    <div class="center_title_bar">Khuyên dùng</div>
+
+
+    @for (int i = 6; i < Model.Count(); i++)
+    {
+        <div class="prod_box">
+            <div class="center_prod_box">
+                <div class="product_title">
+                    <div class="product_title">
+                        <a href="@Url.Action("Details","MyPham",new { id= Model.ElementAt(i).MaSP})">@Model.ElementAt(i).TenSP</a>
+                    </div>
+                </div>
+
+                <div class="product_img">
+                    <a href="@Url.Action("Details","MyPham",new { id= Model.ElementAt(i).MaSP})">
+                        <img src="~/Images/@Model.ElementAt(i).HinhAnh" width="95px" alt="" border="0" />
+                    </a>
+                </div>
+
+                <div class="prod_price">
+                    <span class="price">@String.Format("{0:0,0}", @Model.ElementAt(i).GiaBan) VND</span>
+                </div>
+                <div class="fb-like" data-href="http://localhost:50074/MyPham/@Model.ElementAt(i).MaSP" data-layout="button_count" data-action="like" data-size="small" data-show-faces="false" data-share="true"></div>
+
+            </div>
+            <div class="prod_details_tab">
+                <a href="@Url.Action("Themgiohang", "Giohang", new { @idSp = Model.ElementAt(i).MaSP, @strUrl=Request.Url.ToString()})" class="prod_buy">Add to Cart</a>
+                <a href="@Url.Action("Details","MyPham",new { id= Model.ElementAt(i).MaSP})" class="prod_details">Details</a>
+            </div>
+
+        </div>
+    }
+
+
+

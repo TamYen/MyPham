@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewBag.Title = "DangNhap";
+    Layout = "~/Views/Shared/_layoutUser.cshtml";
+}
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+<div class="center_content">
+    <h3 style="color:red; text-align:center"> @ViewBag.thongbao</h3>
+    <table align="center">
+        <h2 style="text-align: center">ĐĂNG NHẬP</h2>
+        @using (Html.BeginForm())
+        {
+            @Html.ValidationSummary(true)
+            <tr style="height:40px">
+                <td>Tên đang nhập: </td>
+                <td>@Html.TextBox("TenDN") @ViewData["loi1"]</td>
+            </tr>
+            <tr style="height:40px">
+                <td>Mật khẩu: </td>
+                <td>@Html.Password("matkhau") @ViewData["loi2"]</td>
+            </tr>
+            <tr style="height:40px">
+                <td></td>
+                <td><input type="submit" value="Đang nhập" /></td>
+            </tr>
+        }
+    </table>
+    <p> Bạn chưa có tài khoản? 
+        @Html.ActionLink("Đăng ký tài khoản", "Dangky","Nguoidung") nhanh thôi!!!
+    </p>
+    <h3 style="color:dodgerblue; text-align:center"> @ViewBag.thongbao2</h3>
+</div>
+
